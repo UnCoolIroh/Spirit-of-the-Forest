@@ -13,9 +13,14 @@ public class GeneralAIBehavior : MonoBehaviour
     public GameObject pointA;
     public GameObject pointB;
     private Transform currentPoint;
+    public GameObject hitbox;
+    private bool Attacking = false;
+    private float timetoAttack = 6f;
+    private float attackTimer = 0;
     void Start()
     {
         currentPoint = pointB.transform;
+        hitbox = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -27,7 +32,30 @@ public class GeneralAIBehavior : MonoBehaviour
             alert_state = true;
         }
         Move();
+        Attack();
+        AttackTime();
        
+    }
+
+    void Attack()
+    {
+        if (attackTimer == 0)
+        {
+            Attacking = true;
+            hitbox.SetActive(Attacking);
+        }
+
+    }
+
+    void AttackTime()
+    {
+        attackTimer += Time.deltaTime;
+        if (attackTimer >= timetoAttack)
+        {
+            attackTimer = 0;
+            Attacking = false;
+            hitbox.SetActive(Attacking);
+        }
     }
 
     void Move()
