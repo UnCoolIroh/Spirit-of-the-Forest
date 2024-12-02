@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             startTimer();
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (UserInput.instance.controls.Gameplay.Attack.WasPerformedThisFrame())
         {
             Attack();
         }
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     void Swap()
     {
-        if (timer == 5 && Input.GetKeyDown(KeyCode.Space) && !animator.GetBool("bearSwap"))
+        if (timer == 5 && UserInput.instance.controls.Gameplay.Transform.WasPerformedThisFrame() && !animator.GetBool("bearSwap"))
         {
             isBear = true;
             animator.SetBool("bearSwap", true);
@@ -56,12 +56,12 @@ public class PlayerController : MonoBehaviour
             startTimer();
 
         }
-        else if (timer == 5 && Input.GetKeyDown(KeyCode.Space) && animator.GetBool("bearSwap"))
+        else if (timer == 5 && UserInput.instance.controls.Gameplay.Transform.WasPerformedThisFrame() && animator.GetBool("bearSwap"))
         {
             isBear = false;
             animator.SetBool("bearSwap", false);
             speed /= .6f;
-            timetoAttack /= 4;
+            timetoAttack /= 15;
             startTimer();
         }
 
@@ -108,9 +108,9 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         Vector2 velocity = new Vector2(speed, speed);
-        if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
+        if (UserInput.instance.moveInput.x != 0 || UserInput.instance.moveInput.y != 0)
         {
-            change = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            change = new Vector2(UserInput.instance.moveInput.x, UserInput.instance.moveInput.y);
             //animator.SetBool("isWalking", true);
         }
         else
