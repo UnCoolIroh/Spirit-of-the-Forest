@@ -6,7 +6,11 @@ public class attack : MonoBehaviour
 
 {
     public PlayerController player;
-    public float attackPower = 5f;
+    public float attackPower = 10f;
+
+    public void Start() {
+        player = GetComponentInParent<PlayerController>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "enemy")
