@@ -4355,7 +4355,7 @@ GameObject:
   - component: {fileID: 5907905922346392198}
   m_Layer: 0
   m_Name: aboveFloor
-  m_TagString: Untagged
+  m_TagString: Pit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
