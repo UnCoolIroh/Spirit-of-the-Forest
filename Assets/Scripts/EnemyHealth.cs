@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Damage(float damage)
     {
-        
+
         this.health -= damage;
         print("Enemy health: " + health);
     }
