@@ -33,8 +33,10 @@ public class GeneralAIBehavior : MonoBehaviour
         }
         Move();
         Attack();
-        AttackTime();
-       
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
     }
 
     void Attack()
@@ -44,7 +46,7 @@ public class GeneralAIBehavior : MonoBehaviour
             Attacking = true;
             hitbox.SetActive(Attacking);
         }
-
+        AttackTime();
     }
 
     void AttackTime()
