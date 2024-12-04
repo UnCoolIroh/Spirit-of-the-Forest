@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -18,10 +20,16 @@ public class PlayerController : MonoBehaviour
     public bool isBear = true;
     private float timetoAttack = 0.30f;
     private float attackTimer = 0;
+    public int coins;
+    public int gems;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI gemText;
     void Start()
     {
         animator = GetComponent<Animator>();
         hitbox = transform.GetChild(0).gameObject;
+        coinText.text = coins.ToString();
+        gemText.text = gems.ToString();
 
     }
 
@@ -67,7 +75,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
     void AttackTime()
     {
         attackTimer += Time.deltaTime;
@@ -90,6 +97,19 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public void PickupCoin(int quantity)
+    {
+        coins += quantity;
+        coinText.text = coins.ToString();
+    }
+
+    public void PickupGem(int quantity)
+    {
+        gems += quantity;
+        gemText.text = gems.ToString();
+    }
+
 
     void startTimer()
     {
