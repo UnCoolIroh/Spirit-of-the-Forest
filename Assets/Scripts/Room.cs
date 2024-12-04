@@ -9,6 +9,10 @@ public class Room : MonoBehaviour
     [SerializeField] GameObject bottomDoor;
     [SerializeField] GameObject leftDoor;
     [SerializeField] GameObject rightDoor;
+    [SerializeField] GameObject topDoorWall;
+    [SerializeField] GameObject bottomDoorWall;
+    [SerializeField] GameObject leftDoorWall;
+    [SerializeField] GameObject rightDoorWall;
 
     public Vector2Int RoomIndex { get; set; }
 
@@ -17,18 +21,22 @@ public class Room : MonoBehaviour
         if (direction == Vector2Int.up)
         {
             topDoor.SetActive(true);
+            topDoorWall.SetActive(false);
         }
         if (direction == Vector2Int.down)
         {
             bottomDoor.SetActive(true);
+            bottomDoorWall.SetActive(false);
         }
         if (direction == Vector2Int.left)
         {
             leftDoor.SetActive(true);
+            leftDoorWall.SetActive(false);
         }
         if (direction == Vector2Int.right)
         {
             rightDoor.SetActive(true);
+            rightDoorWall.SetActive(false); 
         }
     }
 }
