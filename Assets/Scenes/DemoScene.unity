@@ -4051,14 +4051,14 @@ MonoBehaviour:
   roomPrefabs:
   - {fileID: 2664415513636118704, guid: 62a621ef8988a314c86b40d320206234, type: 3}
   - {fileID: 2664415513636118704, guid: 1ecd7766d583cd44d9d0d1c8b5d3cf4e, type: 3}
-  - {fileID: 2664415513636118704, guid: 888d9e6ebb4c01149bfb35b4f42cc07c, type: 3}
-  - {fileID: 2664415513636118704, guid: b484352368698d8478c28d727f16cec3, type: 3}
-  - {fileID: 2664415513636118704, guid: 00ad607327290f14299b056ce786295a, type: 3}
-  - {fileID: 2664415513636118704, guid: 803311407a905bb47a231ba168109a39, type: 3}
-  - {fileID: 2664415513636118704, guid: 4c97a530fb10bf44fa3c82e320db1ec3, type: 3}
-  - {fileID: 2664415513636118704, guid: 738a494483a490c42a82612865a83189, type: 3}
-  maxRooms: 15
-  minRooms: 10
+  - {fileID: 2664415513636118704, guid: eaadec8fadb5b014f8a86dadc9c075cc, type: 3}
+  - {fileID: 2664415513636118704, guid: c13fd68b29b3c7342a158d6bbd39a6d7, type: 3}
+  - {fileID: 2664415513636118704, guid: 9dca484bdfed3c0458e74663eb399b9c, type: 3}
+  - {fileID: 2664415513636118704, guid: 28d96aeefb13cb64cad9b982e7027a76, type: 3}
+  - {fileID: 2664415513636118704, guid: 705e8d50e5c10084993190245a98f789, type: 3}
+  - {fileID: 2664415513636118704, guid: fed9fb70ca8f22144a9482bbf376ece9, type: 3}
+  maxRooms: 10
+  minRooms: 6
 --- !u!4 &1297134092
 Transform:
   m_ObjectHideFlags: 0
