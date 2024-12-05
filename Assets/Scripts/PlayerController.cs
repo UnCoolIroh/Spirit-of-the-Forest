@@ -60,8 +60,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAlive)
-        {
+        //if (isAlive)
+        //{
             Swap();
             if (countDown)
             {
@@ -73,15 +73,15 @@ public class PlayerController : MonoBehaviour
             }
 
             AttackTime();
-        }
+        //}
     }
 
     public void FixedUpdate()
     {
-        if (isAlive)
-        {
+        //if (isAlive)
+        //{
             Move();
-        }
+        //}
     }
 
     void Swap()
