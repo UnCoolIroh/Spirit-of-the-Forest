@@ -12,11 +12,14 @@ public class HiveSpawner : MonoBehaviour
     public int maxHealth = 20; // Max HP for the hive
     private int currentHealth;
 
+    private Animator animator;
     private float spawnTimer;
 
     void Start()
     {
         currentHealth = maxHealth; // Initialize hive health
+        animator = GetComponent<Animator>(); // Assumes an Animator is attached to the hive
+
     }
 
     void Update()
@@ -35,6 +38,7 @@ public class HiveSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+		animator.SetTrigger("Spawn");
         // Spawn a flying enemy at hive's position
         Instantiate(flyingEnemyPrefab, transform.position, Quaternion.identity);
         currentSpawnedEnemies++;
