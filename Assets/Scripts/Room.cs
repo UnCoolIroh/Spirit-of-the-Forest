@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+//Source: https://www.youtube.com/watch?v=eK2SlZxNjiU&ab_channel=Rootbin
 public class Room : MonoBehaviour
 {
     [SerializeField] GameObject topDoor;
@@ -22,12 +23,17 @@ public class Room : MonoBehaviour
     public List<GameObject> EnemySpawner;
     public bool roomCleared = false;
     public GameObject roomClearloot;
+    float timer; 
 
     public Vector2Int RoomIndex { get; set; }
 
     void Update()
     {
-        CheckLocks();
+        timer += Time.deltaTime;
+        if (timer > 3)
+        {
+            
+        }
     }
 
     private void CheckLocks()
