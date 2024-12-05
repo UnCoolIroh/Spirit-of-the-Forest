@@ -37,5 +37,17 @@ public class attack : MonoBehaviour
                 health.TakeDamage(attackPower);
             }
         }
+        if (collision.tag == "spider")
+        {
+            SpiderEnemy health = collision.GetComponent<SpiderEnemy>();
+            if (player.isBear)
+            {
+                health.TakeDamage(attackPower * 2);
+            }
+            else
+            {
+                health.TakeDamage(attackPower);
+            }
+        }
     }
 }

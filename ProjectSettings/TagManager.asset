@@ -8,6 +8,7 @@ TagManager:
   - Pit
   - fly
   - hive
+  - spider
   layers:
   - Default
   - TransparentFX
