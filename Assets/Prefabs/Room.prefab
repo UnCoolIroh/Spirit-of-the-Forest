@@ -1221,6 +1221,8 @@ MonoBehaviour:
   - {fileID: 5614636190511231010}
   - {fileID: 2738005804904368468}
   - {fileID: 4577500803433174140}
+  roomCleared: 0
+  roomClearloot: {fileID: 8983117537408091073, guid: 8178bbf87a0cb4048ad76448e5ee17c4, type: 3}
 --- !u!61 &-4402703978192044481
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class Merchant : MonoBehaviour
 
     void Update()
     {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E)) // Interact with E key
+        if (isPlayerNearby && UserInput.instance.controls.Gameplay.TraversalAbility.WasPressedThisFrame()) // Interact with E key
         {
             ToggleMerchantPanel();
         }
