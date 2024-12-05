@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpiderEnemy : MonoBehaviour
@@ -90,7 +91,7 @@ public class SpiderEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Damage the player
-            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerHealth>()?.Damage(1);
 
             // Trigger optional Impact animation
             animator.SetTrigger("Impact");

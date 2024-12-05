@@ -102,7 +102,7 @@ public class BurrowingWorm : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Damage the player (Assumes the player has a PlayerHealth script)
-            collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerHealth>()?.Damage(1);
         }
     }
 }

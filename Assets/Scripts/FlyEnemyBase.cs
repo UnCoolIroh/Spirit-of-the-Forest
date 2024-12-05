@@ -61,7 +61,7 @@ public class FlyingEnemy : MonoBehaviour
 
     private void DamagePlayer()
     {
-        player.GetComponent<PlayerHealth>()?.TakeDamage(1);
+        player.GetComponent<PlayerHealth>()?.Damage(1);
     }
 
     public void TakeDamage(int damage)

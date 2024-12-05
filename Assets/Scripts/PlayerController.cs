@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
     {
         gems += quantity;
         gemText.text = gems.ToString();
-    }
+    } 
 
 
     void startTimer()
