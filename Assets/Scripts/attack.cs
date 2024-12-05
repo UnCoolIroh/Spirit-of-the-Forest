@@ -13,16 +13,28 @@ public class attack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "enemy")
+        if (collision.tag == "fly")
         {
-            EnemyHealth health = collision.GetComponent<EnemyHealth>();
+            FlyingEnemy health = collision.GetComponent<FlyingEnemy>();
             if (player.isBear)
             {
-                health.Damage(attackPower * 2);
+                health.TakeDamage(attackPower * 2);
             }
             else
             {
-                health.Damage(attackPower);
+                health.TakeDamage(attackPower);
+            }
+        }
+        if (collision.tag == "hive")
+        {
+            HiveSpawner health = collision.GetComponent<HiveSpawner>();
+            if (player.isBear)
+            {
+                health.TakeDamage(attackPower * 2);
+            }
+            else
+            {
+                health.TakeDamage(attackPower);
             }
         }
     }

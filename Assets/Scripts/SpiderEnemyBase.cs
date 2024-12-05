@@ -25,6 +25,7 @@ public class SpiderEnemy : MonoBehaviour
     private Animator animator;
     private bool isCharging = false;
     private bool isOnCooldown = false;
+    public GameObject deathDrop;
 
     void Start()
     {
@@ -118,5 +119,6 @@ public class SpiderEnemy : MonoBehaviour
 
         // Destroy the spider after death animation (adjust delay for animation length)
         Destroy(gameObject, 0.5f);
+        Instantiate(deathDrop, transform.position, Quaternion.identity);    
     }
 }

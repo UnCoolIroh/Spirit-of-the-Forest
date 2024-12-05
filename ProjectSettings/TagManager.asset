@@ -6,6 +6,8 @@ TagManager:
   tags:
   - enemy
   - Pit
+  - fly
+  - hive
   layers:
   - Default
   - TransparentFX

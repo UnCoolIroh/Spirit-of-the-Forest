@@ -121,7 +121,6 @@ public class PlayerController : MonoBehaviour
         if (!Attacking)
         {
             Attacking = true;
-            print("PLAYER ATTACK");
             animator.SetTrigger("attack");
         }
 

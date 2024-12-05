@@ -7,16 +7,19 @@ public class FlyingEnemy : MonoBehaviour
     public float damageInterval = 1.5f;  // Time between damage ticks
 
     // Health
-    public int maxHealth = 3; // Maximum health of the fly
-    private int currentHealth;
+    public float maxHealth = 3; // Maximum health of the fly
+    private float currentHealth;
 
     // Components
     private Transform player;
     private float damageTimer;
     private bool isInContactWithPlayer = false;
+    private GameObject actualplayer;
+    public GameObject deathDrop;
 
     void Start()
     {
+        actualplayer = GameObject.FindWithTag("Player");
         player = GameObject.FindWithTag("Player").transform; // Assumes the player is tagged "Player"
         currentHealth = maxHealth; // Initialize health
     }
@@ -61,10 +64,10 @@ public class FlyingEnemy : MonoBehaviour
 
     private void DamagePlayer()
     {
-        player.GetComponent<PlayerHealth>()?.Damage(1);
+        actualplayer.GetComponent<PlayerHealth>().Damage(3);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -78,6 +81,8 @@ public class FlyingEnemy : MonoBehaviour
     {
         // Optional: Play a death animation or spawn particle effects here if we have it
         Destroy(gameObject);
+        Instantiate(deathDrop, transform.position, Quaternion.identity);
+
     }
 
     private void OnBecameInvisible()

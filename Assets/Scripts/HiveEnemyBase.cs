@@ -9,11 +9,12 @@ public class HiveSpawner : MonoBehaviour
     private int currentSpawnedEnemies = 0;
 
     // Health
-    public int maxHealth = 20; // Max HP for the hive
-    private int currentHealth;
+    public float maxHealth = 20; // Max HP for the hive
+    private float currentHealth;
 
     private Animator animator;
     private float spawnTimer;
+    public GameObject deathDrop;
 
     void Start()
     {
@@ -38,13 +39,13 @@ public class HiveSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-		animator.SetTrigger("Spawn");
+		//animator.SetTrigger("Spawn");
         // Spawn a flying enemy at hive's position
         Instantiate(flyingEnemyPrefab, transform.position, Quaternion.identity);
         currentSpawnedEnemies++;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
@@ -57,13 +58,14 @@ public class HiveSpawner : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject); // Destroy the hive
+        Instantiate(deathDrop, transform.position, Quaternion.identity);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("PlayerAttack"))
-        {
-            TakeDamage(1); // Adjust damage value as needed
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("PlayerAttack"))
+    //    {
+    //        TakeDamage(1); // Adjust damage value as needed
+    //    }
+    //}
 }

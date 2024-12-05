@@ -20,6 +20,7 @@ public class BurrowingWorm : MonoBehaviour
     private Animator animator; // Animator for burrowing/unburrowing animations
     private bool isBurrowed = false; // Whether the worm is burrowed
     private Transform player; // Reference to the player
+    public GameObject deathDrop;
 
     void Start()
     {
@@ -95,6 +96,7 @@ public class BurrowingWorm : MonoBehaviour
     {
         animator.SetTrigger("Die"); // Trigger death animation
         Destroy(gameObject, 1f); // Wait for animation to finish before destroying
+        Instantiate(deathDrop, transform.position, Quaternion.identity);   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
