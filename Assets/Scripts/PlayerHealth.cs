@@ -30,4 +30,10 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
+
+    public void healthReset()
+    {
+        currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
+    }
 }

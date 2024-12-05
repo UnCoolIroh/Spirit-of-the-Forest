@@ -116,7 +116,7 @@ public class SpiderEnemy : MonoBehaviour
     private void Die()
     {
         // Trigger death animation (if we have one available)
-        animator.SetTrigger("Die");
+        //animator.SetTrigger("Die");
 
         // Destroy the spider after death animation (adjust delay for animation length)
         Destroy(gameObject, 0.5f);
