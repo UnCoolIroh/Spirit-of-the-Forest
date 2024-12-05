@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             isBear = true;
             animator.SetBool("bearSwap", true);
             speed *= .6f;
-            timetoAttack *= 10;
+            timetoAttack *= 7;
             startTimer();
 
         }
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
             isBear = false;
             animator.SetBool("bearSwap", false);
             speed /= .6f;
-            timetoAttack /= 10;
+            timetoAttack /= 7;
             startTimer();
         }
 

@@ -21,7 +21,7 @@ public class attack : MonoBehaviour
             FlyingEnemy health = collision.GetComponent<FlyingEnemy>();
             if (player.isBear)
             {
-                health.TakeDamage(attackPower * 2);
+                health.TakeDamage(attackPower * 2.5f);
             }
             else
             {

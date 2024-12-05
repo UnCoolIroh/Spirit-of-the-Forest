@@ -94,8 +94,6 @@ public class SpiderEnemy : MonoBehaviour
             // Damage the player only if charging
             collision.gameObject.GetComponent<PlayerHealth>()?.Damage(10);
 
-            // Trigger optional Impact animation
-            animator.SetTrigger("Impact");
 
             // Stop movement after hitting the player
             rb.velocity = Vector2.zero;
