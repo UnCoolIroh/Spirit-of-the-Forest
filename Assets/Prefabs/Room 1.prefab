@@ -735,7 +735,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 280536327459258109}
+  m_Father: {fileID: 882648930332094468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7902299844281540040
 MonoBehaviour:
@@ -1236,6 +1236,10 @@ Transform:
   - {fileID: 2317024728968747822}
   - {fileID: 1871142668011570127}
   - {fileID: 280536327459258109}
+  - {fileID: 7240243691771741131}
+  - {fileID: 8561794449176091859}
+  - {fileID: 3068219429239358016}
+  - {fileID: 6217055181749110673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2842712952848780948
@@ -1258,7 +1262,11 @@ MonoBehaviour:
   bottomDoorWall: {fileID: 3283551708735105365}
   leftDoorWall: {fileID: 2371291735790460140}
   rightDoorWall: {fileID: 1857778653922792627}
-  EnemySpawner: {fileID: 0}
+  EnemySpawner:
+  - {fileID: 1936107548822450680, guid: 79ea167d13f7449d092e81089611db15, type: 3}
+  - {fileID: 8580088747751578630, guid: 1063836decb0b44c9b39fabc809fb24b, type: 3}
+  roomCleared: 0
+  roomClearloot: {fileID: 0}
 --- !u!61 &4335590512725079931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2034,7 +2042,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 280536327459258109}
+  m_Father: {fileID: 882648930332094468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &90341604690497242
 MonoBehaviour:
@@ -3512,10 +3520,6 @@ Transform:
   - {fileID: 43477533465867334}
   - {fileID: 3002163362713023204}
   - {fileID: 2594706845147631273}
-  - {fileID: 7240243691771741131}
-  - {fileID: 8561794449176091859}
-  - {fileID: 3068219429239358016}
-  - {fileID: 6217055181749110673}
   m_Father: {fileID: 882648930332094468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &7283070423314147686
@@ -4452,7 +4456,7 @@ GameObject:
   - component: {fileID: 5907905922346392198}
   m_Layer: 0
   m_Name: aboveFloor
-  m_TagString: Untagged
+  m_TagString: Pit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4837,7 +4841,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 280536327459258109}
+  m_Father: {fileID: 882648930332094468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6822708473824828381
 MonoBehaviour:
@@ -5139,7 +5143,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 280536327459258109}
+  m_Father: {fileID: 882648930332094468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &156740966086810835
 MonoBehaviour:
