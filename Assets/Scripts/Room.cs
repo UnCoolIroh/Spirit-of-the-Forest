@@ -23,17 +23,13 @@ public class Room : MonoBehaviour
     public List<GameObject> EnemySpawner;
     public bool roomCleared = false;
     public GameObject roomClearloot;
-    float timer; 
+    public bool entered = false;
 
     public Vector2Int RoomIndex { get; set; }
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > 3)
-        {
-            
-        }
+        CheckLocks();
     }
 
     private void CheckLocks()
@@ -44,8 +40,11 @@ public class Room : MonoBehaviour
         }
         else
         {
-            unlockDoors();
-            roomCleared = true;
+            if (entered)
+            {
+                unlockDoors();
+                roomCleared = true;
+            }
         }
     }
 
@@ -123,6 +122,7 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        entered = true;
         if (!roomCleared)
         {
             if (collision.CompareTag("Player"))

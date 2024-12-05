@@ -1263,10 +1263,12 @@ MonoBehaviour:
   leftDoorWall: {fileID: 2371291735790460140}
   rightDoorWall: {fileID: 1857778653922792627}
   EnemySpawner:
-  - {fileID: 1936107548822450680, guid: 79ea167d13f7449d092e81089611db15, type: 3}
-  - {fileID: 8580088747751578630, guid: 1063836decb0b44c9b39fabc809fb24b, type: 3}
-  roomCleared: 0
-  roomClearloot: {fileID: 0}
+  - {fileID: 6903687550416192689}
+  - {fileID: 3934746396351880721}
+  - {fileID: 1750839864430781815}
+  - {fileID: 7754653410742046629}
+  roomCleared: 1
+  roomClearloot: {fileID: 8983117537408091073, guid: 8178bbf87a0cb4048ad76448e5ee17c4, type: 3}
 --- !u!61 &4335590512725079931
 BoxCollider2D:
   m_ObjectHideFlags: 0
