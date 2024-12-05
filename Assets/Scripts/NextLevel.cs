@@ -29,6 +29,7 @@ public class NextLevel : MonoBehaviour
             {
                 //audioManager.playSFX(audioManager.door);
             }
+            other.transform.position = Vector3.zero;
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
     }

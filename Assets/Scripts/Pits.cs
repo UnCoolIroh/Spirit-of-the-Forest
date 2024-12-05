@@ -15,7 +15,7 @@ public class Pits : MonoBehaviour
     {
         if (collision.tag == "Pit")
         {
-            Destroy(player);
+            player.isAlive = false;
         }
     }
 }

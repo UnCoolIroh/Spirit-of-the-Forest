@@ -78,6 +78,10 @@ public class RoomManager : MonoBehaviour
     {
         int x = roomIndex.x;
         int y = roomIndex.y;
+        if (x >= gridSizeX || y >= gridSizeY)
+        {
+            return false;
+        }
         if (roomCount >= maxRooms)
         {
             return false;
@@ -85,6 +89,10 @@ public class RoomManager : MonoBehaviour
         if (UnityEngine.Random.value < .5f && roomIndex != Vector2Int.zero)
         {
             return false; 
+        }
+        if (roomGrid[x, y] != 0)
+        {
+            return false;
         }
         if (CountAdjacentRooms(roomIndex) > 1)
             return false;
