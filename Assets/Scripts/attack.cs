@@ -7,7 +7,7 @@ public class attack : MonoBehaviour
 {
     public PlayerController player;
     public float attackPower = 10f;
-
+    
     public void Start() {
         player = GetComponentInParent<PlayerController>();
     }
