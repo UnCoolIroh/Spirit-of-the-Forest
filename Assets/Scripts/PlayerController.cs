@@ -113,7 +113,6 @@ public class PlayerController : MonoBehaviour
         {
             attackTimer = 0;
             Attacking = false;
-            hitbox.SetActive(Attacking);
         }
     }
 
@@ -122,7 +121,6 @@ public class PlayerController : MonoBehaviour
         if (!Attacking)
         {
             Attacking = true;
-            hitbox.SetActive(Attacking);
             print("PLAYER ATTACK");
             animator.SetTrigger("attack");
         }
@@ -162,17 +160,17 @@ public class PlayerController : MonoBehaviour
         if (UserInput.instance.moveInput.x != 0 || UserInput.instance.moveInput.y != 0)
         {
             change = new Vector2(UserInput.instance.moveInput.x, UserInput.instance.moveInput.y);
-            //animator.SetBool("isWalking", true);
+            animator.SetBool("isWalking", true);
         }
         else
         {
-            //animator.SetBool("isWalking", false);
-            //animator.SetFloat("lastInputX", change.x);
-            //animator.SetFloat("lastInputY", change.y);
+            animator.SetBool("isWalking", false);
+            animator.SetFloat("lastInputX", change.x);
+            animator.SetFloat("lastInputY", change.y);
             return;
         }
-        //animator.SetFloat("InputX", change.x);
-        //animator.SetFloat("InputY", change.y);
+        animator.SetFloat("InputX", change.x);
+        animator.SetFloat("InputY", change.y);
         Vector2 delta = change * velocity * Time.fixedDeltaTime;
         Vector2 newPos = myRigidBody.position + delta;
         myRigidBody.MovePosition(newPos);
