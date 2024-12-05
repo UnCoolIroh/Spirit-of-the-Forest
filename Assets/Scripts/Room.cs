@@ -133,17 +133,21 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        entered = true;
-        if (!roomCleared && loaded == 0)
+        //entered = true;
+        //if (!roomCleared && loaded == 0)
+        //{
+        if (collision.CompareTag("roomcollider"))
         {
-            loaded = 1;
-            if (collision.CompareTag("Player"))
+            entered = true;
+            if (!roomCleared && loaded == 0)
             {
                 foreach (GameObject spawner in EnemySpawner)
                 {
                     spawner.GetComponent<EnemySpawner>().Spawning();
                 }
+                loaded = 1;
             }
         }
+        //}
     }
 }

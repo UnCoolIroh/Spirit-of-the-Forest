@@ -9,6 +9,7 @@ TagManager:
   - fly
   - hive
   - spider
+  - roomcollider
   layers:
   - Default
   - TransparentFX
