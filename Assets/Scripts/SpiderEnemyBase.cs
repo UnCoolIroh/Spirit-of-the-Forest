@@ -99,6 +99,7 @@ public class SpiderEnemy : MonoBehaviour
 
             // Stop movement after hitting the player
             rb.velocity = Vector2.zero;
+            isCharging = false;
         }
     }
 
