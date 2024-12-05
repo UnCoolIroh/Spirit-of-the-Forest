@@ -16,8 +16,8 @@ public class SpiderEnemy : MonoBehaviour
     public float chargeUpTime = 1f;
 
     // Health
-    public int maxHealth = 15;
-    private int currentHealth;
+    public float maxHealth = 15;
+    private float currentHealth;
 
     // Components
     private Transform player;
@@ -89,20 +89,21 @@ public class SpiderEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && isCharging)
         {
-            // Damage the player
-            collision.gameObject.GetComponent<PlayerHealth>()?.Damage(1);
+            // Damage the player only if charging
+            collision.gameObject.GetComponent<PlayerHealth>()?.Damage(10);
 
             // Trigger optional Impact animation
             animator.SetTrigger("Impact");
 
             // Stop movement after hitting the player
             rb.velocity = Vector2.zero;
+            isCharging = false;
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
 
