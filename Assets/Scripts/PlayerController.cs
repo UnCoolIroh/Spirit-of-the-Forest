@@ -4,6 +4,7 @@ using System.Threading;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -20,10 +21,33 @@ public class PlayerController : MonoBehaviour
     public bool isBear = true;
     private float timetoAttack = 0.30f;
     private float attackTimer = 0;
+    public bool isAlive = true;
     public int coins;
     public int gems;
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI gemText;
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -36,21 +60,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Swap();
-        if (countDown)
+        if (isAlive)
         {
-            startTimer();
+            Swap();
+            if (countDown)
+            {
+                startTimer();
+            }
+            if (UserInput.instance.controls.Gameplay.Attack.WasPerformedThisFrame())
+            {
+                Attack();
+            }
+
+            AttackTime();
         }
-        if (UserInput.instance.controls.Gameplay.Attack.WasPerformedThisFrame())
-        {
-            Attack();
-        }
-        AttackTime();
     }
 
     public void FixedUpdate()
     {
-        Move();
+        if (isAlive)
+        {
+            Move();
+        }
     }
 
     void Swap()

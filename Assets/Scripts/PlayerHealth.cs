@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -16,15 +17,18 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Damage(float damage)
     {
-        if (player.isBear)
+        if (player.isAlive)
         {
-            damage *= .6f;
-        }
-        this.currentHealth -= damage;
-        healthbar.SetHealth(currentHealth);
-        if (currentHealth < 0)
-        {
-            Destroy(player);
+            if (player.isBear)
+            {
+                damage *= .6f;
+            }
+            this.currentHealth -= damage;
+            healthbar.SetHealth(currentHealth);
+            if (currentHealth < 0)
+            {
+                player.isAlive = false;
+            }
         }
     }
 }
