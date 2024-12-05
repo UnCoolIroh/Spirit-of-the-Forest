@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Source: https://www.youtube.com/watch?v=eK2SlZxNjiU&ab_channel=Rootbin
 public class RoomManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class RoomManager : MonoBehaviour
     [SerializeField] List<GameObject> roomPrefabs;
     [SerializeField] private int maxRooms = 15;
     [SerializeField] private int minRooms = 10;
+    public int SceneBuildIndex;
 
     int roomWidth = 20;
     int roomHeight = 12;
@@ -25,6 +27,7 @@ public class RoomManager : MonoBehaviour
     private bool generationComplete = false;
 
     private int roomCount;
+    private bool floorcleared;
 
     private void Start()
     {
@@ -58,6 +61,24 @@ public class RoomManager : MonoBehaviour
         {
             Debug.Log($"Generation complete, {roomCount} rooms generated");
             generationComplete = true;
+        }
+        foreach (GameObject room in roomObjects)
+        {
+            Room room1 = room.GetComponent<Room>();
+            if (!room1.roomCleared)
+            {
+                floorcleared = false;
+                break;
+            }
+            else
+            {
+                floorcleared = true;
+            }
+        }
+        if (floorcleared)
+        {
+            GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
+            SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
         }
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class Room : MonoBehaviour
     public bool roomCleared = false;
     public GameObject roomClearloot;
     public bool entered = false;
+    int grantGem = 0;
+    int loaded = 0;
 
     public Vector2Int RoomIndex { get; set; }
 
@@ -34,9 +37,12 @@ public class Room : MonoBehaviour
 
     private void CheckLocks()
     {
-        if (GameObject.FindGameObjectWithTag("fly") != null || GameObject.FindGameObjectWithTag("hive") != null)
+        if (GameObject.FindGameObjectWithTag("fly") != null || GameObject.FindGameObjectWithTag("hive") != null || GameObject.FindGameObjectWithTag("spider") != null)
         {
-            LockDoor();
+            if (entered)
+            {
+                LockDoor();
+            }
         }
         else
         {
@@ -44,6 +50,11 @@ public class Room : MonoBehaviour
             {
                 unlockDoors();
                 roomCleared = true;
+                if (Random.Range(0f, 1f) < .20 && grantGem == 0)
+                {
+                    grantGem++;
+                    Instantiate(roomClearloot, EnemySpawner[0].transform.position, Quaternion.identity);
+                }
             }
         }
     }
@@ -123,8 +134,9 @@ public class Room : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         entered = true;
-        if (!roomCleared)
+        if (!roomCleared && loaded == 0)
         {
+            loaded = 1;
             if (collision.CompareTag("Player"))
             {
                 foreach (GameObject spawner in EnemySpawner)

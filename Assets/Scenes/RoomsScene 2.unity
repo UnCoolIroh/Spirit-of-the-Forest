@@ -4196,9 +4196,9 @@ MonoBehaviour:
   - {fileID: 2664415513636118704, guid: 28d96aeefb13cb64cad9b982e7027a76, type: 3}
   - {fileID: 2664415513636118704, guid: 705e8d50e5c10084993190245a98f789, type: 3}
   - {fileID: 2664415513636118704, guid: fed9fb70ca8f22144a9482bbf376ece9, type: 3}
-  maxRooms: 7
-  minRooms: 4
-  SceneBuildIndex: 3
+  maxRooms: 16
+  minRooms: 11
+  SceneBuildIndex: 5
 --- !u!4 &1297134092
 Transform:
   m_ObjectHideFlags: 0

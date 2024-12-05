@@ -36,6 +36,7 @@ public class DeathMenu : MonoBehaviour
         PlayerObject.transform.position = Vector3.zero;
         deathMenu.SetActive(false);
         Time.timeScale = 1f;
+        PlayerObject.GetComponent<PlayerHealth>().currentHealth = PlayerObject.GetComponent<PlayerHealth>().maxHealth;
         player.PickupCoin(-player.coins);
         player.isAlive = true;
     }
