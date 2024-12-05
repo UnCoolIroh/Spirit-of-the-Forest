@@ -7,12 +7,15 @@ public class attack : MonoBehaviour
 {
     public PlayerController player;
     public float attackPower = 10f;
+    public AudioManager audioManager;
     
     public void Start() {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
         player = GetComponentInParent<PlayerController>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        audioManager.playSFX(audioManager.hit);
         if (collision.tag == "fly")
         {
             FlyingEnemy health = collision.GetComponent<FlyingEnemy>();

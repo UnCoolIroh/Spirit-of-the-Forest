@@ -732,7 +732,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.461
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 886800132}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -865,11 +865,11 @@ MonoBehaviour:
   musicSource: {fileID: 197128772}
   sfxSource: {fileID: 837018259}
   buttonPress: {fileID: 0}
-  typeWriter: {fileID: 0}
-  mrBrightside: {fileID: 0}
-  timeStop: {fileID: 0}
-  door: {fileID: 0}
-  hit: {fileID: 0}
+  music: {fileID: 8300000, guid: c7951519b6c0a584ea0e123a1aed7fe9, type: 3}
+  bear: {fileID: 8300000, guid: 2e98a8ac7b25e3645b8eccf2a898dfd0, type: 3}
+  whoosh: {fileID: 8300000, guid: cfc4eb97934dd614382815603b3da1a5, type: 3}
+  sword: {fileID: 8300000, guid: ac19c484517c60245990486cf3fc9445, type: 3}
+  hit: {fileID: 8300000, guid: 3c4ba19c1d0bb8c4bb885a4f19789ed3, type: 3}
 --- !u!1 &1211677476
 GameObject:
   m_ObjectHideFlags: 0

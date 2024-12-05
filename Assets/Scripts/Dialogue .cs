@@ -47,7 +47,7 @@ public class NPC : MonoBehaviour
             else {
                 if (!talkedTo) {
                     npcNameText.text = npcName;
-                    audioManager.playSFX(audioManager.buttonPress);
+                    //audioManager.playSFX(audioManager.buttonPress);
                     dialoguePanel.SetActive(true);
                     StartCoroutine(Typing());
                 }
@@ -90,7 +90,7 @@ public class NPC : MonoBehaviour
             if (!inRange) {
                 break;
             }
-            audioManager.playSFX(audioManager.typeWriter);
+            //audioManager.playSFX(audioManager.typeWriter);
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }

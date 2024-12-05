@@ -1170,6 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 549883384}
   attackPower: 5
+  audioManager: {fileID: 0}
 --- !u!58 &494399994
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1440,12 +1441,13 @@ MonoBehaviour:
   speed: 6
   change: {x: 0, y: 0}
   hitbox: {fileID: 549883381}
-  isBear: 1
+  isBear: 0
   isAlive: 1
   coins: 0
   gems: 0
   coinText: {fileID: 1266077077}
   gemText: {fileID: 1355290390}
+  audioManager: {fileID: 0}
 --- !u!50 &549883385
 Rigidbody2D:
   serializedVersion: 4

@@ -28,9 +28,11 @@ public class RoomManager : MonoBehaviour
 
     private int roomCount;
     private bool floorcleared;
+    public AudioManager audioManager;
 
     private void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
         roomGrid = new int[gridSizeX, gridSizeY];
         roomQueue = new Queue<Vector2Int>();
 
@@ -79,6 +81,7 @@ public class RoomManager : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Player").transform.position = Vector3.zero;
             SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
+            audioManager.playSFX(audioManager.whoosh);
         }
     }
 

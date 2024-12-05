@@ -14,11 +14,11 @@ public class PlayerController : MonoBehaviour
     public float speed = 20;
     private Animator animator;
     public Vector2 change = new Vector2(0, 0);
-    private float timer = 5;
+    private float timer = 4;
     private bool countDown = false;
     public GameObject hitbox;
     private bool Attacking = false;
-    public bool isBear = true;
+    public bool isBear = false;
     private float timetoAttack = 0.30f;
     private float attackTimer = 0;
     public bool isAlive = true;
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI coinText;
     public TextMeshProUGUI gemText;
     public static PlayerController instance;
+    public AudioManager audioManager;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
         animator = GetComponent<Animator>();
         hitbox = transform.GetChild(0).gameObject;
         coinText.text = coins.ToString();
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     void Swap()
     {
-        if (timer == 5 && UserInput.instance.controls.Gameplay.Transform.WasPerformedThisFrame() && !animator.GetBool("bearSwap"))
+        if (timer == 4 && UserInput.instance.controls.Gameplay.Transform.WasPerformedThisFrame() && !animator.GetBool("bearSwap"))
         {
             isBear = true;
             animator.SetBool("bearSwap", true);
@@ -95,7 +97,7 @@ public class PlayerController : MonoBehaviour
             startTimer();
 
         }
-        else if (timer == 5 && UserInput.instance.controls.Gameplay.Transform.WasPerformedThisFrame() && animator.GetBool("bearSwap"))
+        else if (timer == 4 && UserInput.instance.controls.Gameplay.Transform.WasPerformedThisFrame() && animator.GetBool("bearSwap"))
         {
             isBear = false;
             animator.SetBool("bearSwap", false);
@@ -122,6 +124,14 @@ public class PlayerController : MonoBehaviour
         {
             Attacking = true;
             animator.SetTrigger("attack");
+            if (!isBear)
+            {
+                audioManager.playSFX(audioManager.sword);
+            }
+            else
+            {
+                audioManager.playSFX(audioManager.bear);
+            }
         }
 
     }
@@ -148,7 +158,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            timer = 5;
+            timer = 4;
             countDown = false;
         }
     }

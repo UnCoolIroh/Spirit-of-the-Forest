@@ -10,6 +10,7 @@ TagManager:
   - hive
   - spider
   - roomcollider
+  - audio
   layers:
   - Default
   - TransparentFX
