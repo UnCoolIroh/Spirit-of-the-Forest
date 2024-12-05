@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public GameObject advanceButton;
     public int sceneBuildIndex;
     //AudioManager audioManager;
     void Start()
