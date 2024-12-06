@@ -83,10 +83,14 @@ public class RoomManager : MonoBehaviour
             else
             {
                 floorcleared = true;
+            }
+        }
+        foreach (GameObject room in roomObjects) {
+            Room room1 = room.GetComponent<Room>();
+            if (room1.roomCleared) {
                 if (notCleared.Contains(room)) {
                     notCleared.Remove(room);
                     roomsLeft = notCleared.Count;
-                    rooms.text = "Rooms Left: " + roomsLeft;
                 }
             }
         }
