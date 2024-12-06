@@ -39,7 +39,7 @@ public class HiveSpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-		//animator.SetTrigger("Spawn");
+		animator.SetTrigger("Spawn");
         // Spawn a flying enemy at hive's position
         Instantiate(flyingEnemyPrefab, transform.position, Quaternion.identity);
         currentSpawnedEnemies++;

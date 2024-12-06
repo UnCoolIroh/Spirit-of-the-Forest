@@ -2986,7 +2986,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346449774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.0274, y: 3.0274, z: 3.0274}
   m_ConstrainProportionsScale: 0
@@ -2995,8 +2995,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -132, y: 215}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -406.18, y: 135}
+  m_SizeDelta: {x: 185.4702, y: 53.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346449776
 MonoBehaviour:
@@ -3018,7 +3018,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congratulations, you've won against the dungeon and rescued your friend!
+  m_text: 'Congratulations, you''ve thwarted the dungeon and rescued your friend!
+    You''re a hero to your people!
+
+
+    Press START to return to the hub and run
+    through the dungeon again'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3081,7 +3086,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -89.344986, w: 0}
+  m_margin: {x: 0, y: 0, z: -255.87909, w: -46.942535}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3940,6 +3945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1809434438}
   attackPower: 5
+  audioManager: {fileID: 0}
 --- !u!58 &1113270502
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4802,6 +4808,7 @@ MonoBehaviour:
   gems: 0
   coinText: {fileID: 649095232}
   gemText: {fileID: 206675780}
+  audioManager: {fileID: 0}
 --- !u!50 &1809434439
 Rigidbody2D:
   serializedVersion: 4

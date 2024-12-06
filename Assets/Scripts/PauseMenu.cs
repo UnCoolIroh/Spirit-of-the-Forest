@@ -18,7 +18,10 @@ public class PauseMenu : MonoBehaviour
     {
         if (UserInput.instance.controls.Gameplay.Pause.WasPressedThisFrame())
         {
-            if (!isPaused)
+            if (SceneManager.GetActiveScene().buildIndex == 5) {
+                GoToHub();
+            }
+            else if (!isPaused)
             {
                 PauseGame();
             }
@@ -48,9 +51,11 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void GoToMainMenu()
+    public void GoToHub()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().healthReset();
+        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        player.PickupCoin(-player.coins);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 }

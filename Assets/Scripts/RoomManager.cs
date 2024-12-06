@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 //Source: https://www.youtube.com/watch?v=eK2SlZxNjiU&ab_channel=Rootbin
 public class RoomManager : MonoBehaviour
@@ -19,6 +21,8 @@ public class RoomManager : MonoBehaviour
     int gridSizeY = 10;
 
     private List<GameObject> roomObjects = new List<GameObject>();
+    private List<GameObject> notCleared = new List<GameObject>();
+
 
     private Queue<Vector2Int> roomQueue = new Queue<Vector2Int>();
 
@@ -29,6 +33,9 @@ public class RoomManager : MonoBehaviour
     private int roomCount;
     private bool floorcleared;
     public AudioManager audioManager;
+    public int roomsLeft;
+    public TextMeshProUGUI rooms;
+    public TextMeshProUGUI floor;
 
     private void Start()
     {
@@ -38,6 +45,7 @@ public class RoomManager : MonoBehaviour
 
         Vector2Int initialRoomIndex = new Vector2Int(gridSizeX / 2, gridSizeY / 2);
         StartRoomGenerationFromRoom(initialRoomIndex);
+        floor.text = "Floor " + (SceneBuildIndex - 2);
 
     }
 
@@ -61,8 +69,8 @@ public class RoomManager : MonoBehaviour
         }
         else if (!generationComplete)
         {
-            Debug.Log($"Generation complete, {roomCount} rooms generated");
             generationComplete = true;
+            roomsLeft = notCleared.Count;
         }
         foreach (GameObject room in roomObjects)
         {
@@ -75,6 +83,11 @@ public class RoomManager : MonoBehaviour
             else
             {
                 floorcleared = true;
+                if (notCleared.Contains(room)) {
+                    notCleared.Remove(room);
+                    roomsLeft = notCleared.Count;
+                    rooms.text = "Rooms Left: " + roomsLeft;
+                }
             }
         }
         if (floorcleared)
@@ -83,6 +96,8 @@ public class RoomManager : MonoBehaviour
             SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
             audioManager.playSFX(audioManager.whoosh);
         }
+        rooms.text = "Rooms Left: " + roomsLeft;
+
     }
 
     private void StartRoomGenerationFromRoom(Vector2Int roomIndex)
@@ -96,6 +111,7 @@ public class RoomManager : MonoBehaviour
         initialRoom.name = $"Room-{roomCount}";
         initialRoom.GetComponent<Room>().RoomIndex = roomIndex;
         roomObjects.Add(initialRoom);
+        notCleared.Add(initialRoom);
 
     }
 
@@ -128,6 +144,7 @@ public class RoomManager : MonoBehaviour
         newRoom.GetComponent<Room>().RoomIndex = roomIndex;
         newRoom.name = $"Room-{roomCount}";
         roomObjects.Add(newRoom);
+        notCleared.Add(newRoom);
 
         OpenDoors(newRoom, x, y);
 
@@ -138,6 +155,7 @@ public class RoomManager : MonoBehaviour
     {
         roomObjects.ForEach(Destroy);
         roomObjects.Clear();
+        notCleared.Clear();
         roomGrid = new int[gridSizeX, gridSizeY];
         roomQueue.Clear();
         roomCount = 0;

@@ -27,7 +27,6 @@ public class Room : MonoBehaviour
     public bool entered = false;
     int grantGem = 0;
     int loaded = 0;
-
     public Vector2Int RoomIndex { get; set; }
 
     void Update()

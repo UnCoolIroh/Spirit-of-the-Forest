@@ -15,9 +15,9 @@ public class attack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        audioManager.playSFX(audioManager.hit);
         if (collision.tag == "fly")
         {
+            audioManager.playSFX(audioManager.hit);
             FlyingEnemy health = collision.GetComponent<FlyingEnemy>();
             if (player.isBear)
             {
@@ -30,6 +30,7 @@ public class attack : MonoBehaviour
         }
         if (collision.tag == "hive")
         {
+            audioManager.playSFX(audioManager.hit);
             HiveSpawner health = collision.GetComponent<HiveSpawner>();
             if (player.isBear)
             {
@@ -42,6 +43,7 @@ public class attack : MonoBehaviour
         }
         if (collision.tag == "spider")
         {
+            audioManager.playSFX(audioManager.hit);
             SpiderEnemy health = collision.GetComponent<SpiderEnemy>();
             if (player.isBear)
             {
